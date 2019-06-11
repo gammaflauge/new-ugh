@@ -1,10 +1,10 @@
-FROM grpcmatt/common
+FROM grpc/common
 
 COPY . .
 
-RUN protoc -I=. echo.proto \
---js_out=import_style=commonjs:. \
---grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
+RUN protoc -I=. ugh.proto \
+  --js_out=import_style=commonjs:. \
+  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
 
 RUN npm install && \
   npx webpack && \
