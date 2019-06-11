@@ -3,7 +3,10 @@
     <HelloWorld msg="Hello from the UGH tool"/>
     <h3>issues</h3>
     <ul>
-      <li v-for="issue in issues" v-bind:key="issue">{{ issue }}</li>
+      <li
+        v-for="issue in issues"
+        v-bind:key="issue.issue_id"
+      >{{ issue.issue_id }} - {{ issue.message }}</li>
     </ul>
   </div>
 </template>
@@ -37,7 +40,10 @@ export default {
         console.log(
           "received " + response.getIssueId() + " : " + response.getMessage()
         );
-        issueList.push(response.getMessage());
+        issueList.push({
+          issue_id: response.getIssueId(),
+          message: response.getMessage()
+        });
       });
       stream.on("status", function(status) {
         if (status.metadata) {
