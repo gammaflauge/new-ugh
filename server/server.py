@@ -18,7 +18,7 @@ class Ugh(ugh_pb2_grpc.UghServicer):
 
     def GetAllIssues(self, request, context):
         print(f"working on GetAllIssues (stream)...")
-        for issue in [i for i in db if i['deleted'] != '1']:
+        for issue in reversed([i for i in db if i['deleted'] != '1']):
             yield ugh_pb2.Issue(
                 issue_id=int(issue['record_id']),
                 message=issue['incident_description']
