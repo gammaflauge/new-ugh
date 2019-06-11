@@ -2,11 +2,16 @@
 New repo for tracking ugh -- the ultimate glitch history
 
 ## quick start
+start python and envoy server with docker-compose:
 ```
 docker-compose up --build
 ```
 
-http://localhost:8081/echotest.html
+start client from `ugh-client`:
+```
+yarn serve --open  --port 8081
+```
+http://localhost:8081
 
 ## local dev
 python setup
@@ -17,8 +22,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-If you make changes to `./common/ugh.proto`, you'll need to re-generate your grpc files.
-
+If you make changes to `./common/ugh.proto`, you'll need to re-generate your grpc files:
 ```
 cd server
 python -m grpc_tools.protoc \
@@ -26,16 +30,9 @@ python -m grpc_tools.protoc \
   --grpc_python_out=. ../common/ugh.proto
 ```
 
-### run docker container with server
-(if not using docker-compose)
-```
-docker build -t grpcmatt/python-server .
-docker run -p 9090:9090 grpcmatt/python-server
-```
 
+## ugh-client notes
+[This](https://medium.com/@aravindhanjay/a-todo-app-using-grpc-web-and-vue-js-4e0c18461a3e) article was very helpful in putting this together.
 
-## js client notes
-All the js code for this comes straight from here: https://github.com/grpc/grpc-web  
-
-## envoy
+## about envoy
 Need to use envoy server as middle man between js client to python server.
