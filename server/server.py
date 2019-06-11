@@ -9,6 +9,8 @@ import grpc
 import ugh_pb2
 import ugh_pb2_grpc
 
+from server_resource import db, init_local_db
+
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
@@ -16,16 +18,16 @@ class Ugh(ugh_pb2_grpc.UghServicer):
 
     def GetAllIssues(self, request, context):
         print(f"working on GetAllIssues (stream)...")
-        for i in range(1, 5):
+        for issue in [i for i in db if i['deleted'] != '1']:
             yield ugh_pb2.Issue(
-                issue_id=i,
-                message=f"im #{ i }"
+                issue_id=int(issue['record_id']),
+                message=issue['incident_description']
             )
-            time.sleep(.1)
-            print(f"sent something for { i }")
 
 
 def serve():
+    init_local_db(db)
+
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     ugh_pb2_grpc.add_UghServicer_to_server(Ugh(), server)
     server.add_insecure_port('[::]:9090')
