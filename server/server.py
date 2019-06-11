@@ -16,19 +16,13 @@ class Ugh(ugh_pb2_grpc.UghServicer):
 
     def GetAllIssues(self, request, context):
         print(f"working on GetAllIssues (stream)...")
-        for i in range(1, 22):
+        for i in range(1, 5):
             yield ugh_pb2.Issue(
                 issue_id=i,
-                message="helloooo from GetAllIssues"
+                message=f"im #{ i }"
             )
             time.sleep(.1)
             print(f"sent something for { i }")
-        '''
-        return ugh_pb2.Issue(
-            issue_id=22,
-            message="helloooo from GetAllIssues"
-        )
-        '''
 
 
 def serve():
