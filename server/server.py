@@ -6,36 +6,34 @@ import logging
 
 import grpc
 
-import echo_pb2
-import echo_pb2_grpc
+import ugh_pb2
+import ugh_pb2_grpc
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
-class Echo(echo_pb2_grpc.EchoServiceServicer):
+class Ugh(ugh_pb2_grpc.UghServicer):
 
-    def Echo(self, request, context):
-        print(f"received an echo request (unary)... { request.message }")
-        return echo_pb2.EchoResponse(
-            message='Hello, %s!' % request.message,
-            message_count=22
-        )
-
-    def ServerStreamingEcho(self, request, context):
-        print(
-            f"received an echo request (streaming)... "
-            f"{ request.message } / { request.message_count } / "
-            f"{ request.message_interval }")
-        for i in range(0, request.message_count):
-            yield echo_pb2.ServerStreamingEchoResponse(
-                message='Streamin @ ya, %s!' % request.message
+    def GetAllIssues(self, request, context):
+        print(f"working on GetAllIssues (stream)...")
+        for i in range(1, 22):
+            yield ugh_pb2.Issue(
+                issue_id=i,
+                message="helloooo from GetAllIssues"
             )
-            time.sleep(request.message_interval / 1000)
+            time.sleep(.1)
+            print(f"sent something for { i }")
+        '''
+        return ugh_pb2.Issue(
+            issue_id=22,
+            message="helloooo from GetAllIssues"
+        )
+        '''
 
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    echo_pb2_grpc.add_EchoServiceServicer_to_server(Echo(), server)
+    ugh_pb2_grpc.add_UghServicer_to_server(Ugh(), server)
     server.add_insecure_port('[::]:9090')
     server.start()
     print("server started listening on port 9090")

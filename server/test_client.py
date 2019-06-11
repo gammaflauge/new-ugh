@@ -4,17 +4,24 @@ import random
 
 import grpc
 
-import echo_pb2
-import echo_pb2_grpc
+import ugh_pb2
+import ugh_pb2_grpc
 
 
-def run():
+def run_unary():
     with grpc.insecure_channel('localhost:9090') as channel:
-        stub = echo_pb2_grpc.EchoServiceStub(channel)
-        response = stub.Echo(echo_pb2.EchoRequest(message="huwwo"))
-        print(
-            f"received: { response.message }, count = { response.message_count }")
+        stub = ugh_pb2_grpc.UghStub(channel)
+        response = stub.GetAllIssues(ugh_pb2.Empty())
+        print(f"received: { response.message }, id = { response.issue_id }")
+
+
+def run_streaming():
+    with grpc.insecure_channel('localhost:9090') as channel:
+        stub = ugh_pb2_grpc.UghStub(channel)
+        for response in stub.GetAllIssues(ugh_pb2.Empty()):
+            print(
+                f"received: { response.message }, id = { response.issue_id }")
 
 
 if __name__ == '__main__':
-    run()
+    run_streaming()

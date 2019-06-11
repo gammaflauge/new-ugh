@@ -1,5 +1,5 @@
-# grpc-pyserver-jsclient
-A demo repo to connect a python server with a js cient using the gRPC framework.
+# new-ugh
+New repo for tracking ugh -- the ultimate glitch history
 
 ## quick start
 ```
@@ -8,22 +8,22 @@ docker-compose up --build
 
 http://localhost:8081/echotest.html
 
-
-## python server notes
-implemented only unary and one-way streaming (server -> client).
-
-### install grpcio via pip
+## local dev
+python setup
 ```
-python -m pip install grpcio  &&
-  python -m pip install grpcio-tools
+python -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-### generate grpc code
+If you make changes to `./common/ugh.proto`, you'll need to re-generate your grpc files.
+
 ```
 cd server
-python -m grpc_tools.protoc
-  -I../common --python_out=.
-  --grpc_python_out=. ../common/echo.proto
+python -m grpc_tools.protoc \
+  -I../common --python_out=. \
+  --grpc_python_out=. ../common/ugh.proto
 ```
 
 ### run docker container with server
