@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='ugh',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tugh.proto\x12\x03ugh\"\x07\n\x05\x45mpty\"*\n\x05Issue\x12\x10\n\x08issue_id\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t21\n\x03Ugh\x12*\n\x0cGetAllIssues\x12\n.ugh.Empty\x1a\n.ugh.Issue\"\x00\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\tugh.proto\x12\x03ugh\"\x07\n\x05\x45mpty\"\x88\x02\n\x05Issue\x12\x11\n\trecord_id\x18\x01 \x01(\x05\x12\x15\n\rincident_type\x18\x02 \x01(\t\x12\x19\n\x11incident_datetime\x18\x03 \x01(\t\x12\x1c\n\x14incident_description\x18\x04 \x01(\t\x12\x0c\n\x04\x63nxn\x18\x05 \x01(\t\x12\x10\n\x08workflow\x18\x06 \x01(\t\x12\x0f\n\x07worklet\x18\x07 \x01(\t\x12\x0f\n\x07session\x18\x08 \x01(\t\x12\x0e\n\x06\x66older\x18\t \x01(\t\x12\x15\n\rresolver_name\x18\n \x01(\t\x12\x17\n\x0ftime_to_resolve\x18\x0b \x01(\t\x12\x1a\n\x12resolution_details\x18\x0c \x01(\t21\n\x03Ugh\x12*\n\x0cGetAllIssues\x12\n.ugh.Empty\x1a\n.ugh.Issue\"\x00\x30\x01\x62\x06proto3')
 )
 
 
@@ -58,15 +58,85 @@ _ISSUE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='issue_id', full_name='ugh.Issue.issue_id', index=0,
+      name='record_id', full_name='ugh.Issue.record_id', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='message', full_name='ugh.Issue.message', index=1,
+      name='incident_type', full_name='ugh.Issue.incident_type', index=1,
       number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='incident_datetime', full_name='ugh.Issue.incident_datetime', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='incident_description', full_name='ugh.Issue.incident_description', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cnxn', full_name='ugh.Issue.cnxn', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='workflow', full_name='ugh.Issue.workflow', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='worklet', full_name='ugh.Issue.worklet', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='session', full_name='ugh.Issue.session', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='folder', full_name='ugh.Issue.folder', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='resolver_name', full_name='ugh.Issue.resolver_name', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time_to_resolve', full_name='ugh.Issue.time_to_resolve', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='resolution_details', full_name='ugh.Issue.resolution_details', index=11,
+      number=12, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -83,8 +153,8 @@ _ISSUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27,
-  serialized_end=69,
+  serialized_start=28,
+  serialized_end=292,
 )
 
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
@@ -113,8 +183,8 @@ _UGH = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=71,
-  serialized_end=120,
+  serialized_start=294,
+  serialized_end=343,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetAllIssues',
