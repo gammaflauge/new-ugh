@@ -12,7 +12,8 @@ def run_unary():
     with grpc.insecure_channel('localhost:9090') as channel:
         stub = ugh_pb2_grpc.UghStub(channel)
         response = stub.GetAllIssues(ugh_pb2.Empty())
-        print(f"received: { response.message }, id = { response.issue_id }")
+        print(
+            f"received: { response.incident_datetime }, id = { response.record_id }")
 
 
 def run_streaming():
@@ -20,7 +21,7 @@ def run_streaming():
         stub = ugh_pb2_grpc.UghStub(channel)
         for response in stub.GetAllIssues(ugh_pb2.Empty()):
             print(
-                f"received: { response.message }, id = { response.issue_id }")
+                f"received: { response.incident_datetime }, id = { response.record_id }")
 
 
 if __name__ == '__main__':

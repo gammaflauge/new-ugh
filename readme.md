@@ -26,13 +26,15 @@ If you make changes to `./common/ugh.proto`, you'll need to re-generate your grp
 ```
 cd server
 python -m grpc_tools.protoc \
-  -I../common --python_out=. \
-  --grpc_python_out=. ../common/ugh.proto
+  -I.. --python_out=. \
+  --grpc_python_out=. ../ugh.proto
 ```
 
 
 ## ugh-client notes
 [This](https://medium.com/@aravindhanjay/a-todo-app-using-grpc-web-and-vue-js-4e0c18461a3e) article was very helpful in putting this together.
+
+I used this [docker](https://github.research.chop.edu/gist/devinem4/eba2c71a5d311f0ec021475cc0d428c7) file to generate `ugh_pb.js` and `ugh_grpc_web_pb.js` (b/c I didnt want to install protoc on my local machine).
 
 ## about envoy
 Need to use envoy server as middle man between js client to python server.

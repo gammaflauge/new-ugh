@@ -1,10 +1,5 @@
 version: '3'
 services:
-#  common:
-#    build:
-#      context: ./common
-#      dockerfile: ./Dockerfile
-#    image: grpc/common
   python-server:
     build:
       context: ./server
@@ -21,12 +16,3 @@ services:
       - "8080:8080"
     links:
       - python-server
-#  js-client:
-#    build:
-#      context: ./client
-#      dockerfile: ./Dockerfile
-#    depends_on:
-#      - common
-#    image: grpc/js-client
-#    ports:
-#      - "8081:8081"
