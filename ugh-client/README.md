@@ -7,12 +7,12 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+yarn serve --open
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
+yarn build --dest docs
 ```
 
 ### Run your tests
