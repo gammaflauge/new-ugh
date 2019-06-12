@@ -12,10 +12,18 @@ service Ugh {
 
 message Empty {}
 
+// https://redcap.chop.edu/redcap_v9.0.3/Design/online_designer.php?pid=22810&page=incident_description
 message Issue {
-  // the id of the opened issue in redcap
-  int32 issue_id = 1;
-
-  // the issue description from redcap
-  string message = 2;
+  int32 record_id = 1;
+  string incident_type = 2;
+  string incident_datetime = 3;
+  string incident_description = 4;
+  string cnxn = 5;
+  string workflow = 6;
+  string worklet = 7;
+  string session = 8;
+  string folder = 9;
+  string resolver_name = 10;
+  string time_to_resolve = 11;
+  string resolution_details = 12;
 }
