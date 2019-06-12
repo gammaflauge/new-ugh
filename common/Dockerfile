@@ -18,3 +18,14 @@ RUN mkdir -p /var/www/html/dist
 WORKDIR /usr/src/app
 
 COPY ./ugh.proto .
+
+# display the contents of the generated pb files
+RUN protoc -I=. ugh.proto \
+  --js_out=import_style=commonjs:. \
+  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
+
+RUN echo **************************************************
+RUN cat ugh_grpc_web_pb.js
+RUN echo **************************************************
+RUN cat ugh_pb.js
+RUN echo **************************************************s
