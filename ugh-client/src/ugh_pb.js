@@ -188,8 +188,18 @@ proto.ugh.Issue.prototype.toObject = function(opt_includeInstance) {
  */
 proto.ugh.Issue.toObject = function(includeInstance, msg) {
   var f, obj = {
-    issueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    message: jspb.Message.getFieldWithDefault(msg, 2, "")
+    recordId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    incidentType: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    incidentDatetime: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    incidentDescription: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    cnxn: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    workflow: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    worklet: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    session: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    folder: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    resolverName: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    timeToResolve: jspb.Message.getFieldWithDefault(msg, 11, ""),
+    resolutionDetails: jspb.Message.getFieldWithDefault(msg, 12, "")
   };
 
   if (includeInstance) {
@@ -228,11 +238,51 @@ proto.ugh.Issue.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setIssueId(value);
+      msg.setRecordId(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setMessage(value);
+      msg.setIncidentType(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setIncidentDatetime(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setIncidentDescription(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCnxn(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setWorkflow(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setWorklet(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSession(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFolder(value);
+      break;
+    case 10:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setResolverName(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTimeToResolve(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setResolutionDetails(value);
       break;
     default:
       reader.skipField();
@@ -263,17 +313,87 @@ proto.ugh.Issue.prototype.serializeBinary = function() {
  */
 proto.ugh.Issue.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getIssueId();
+  f = message.getRecordId();
   if (f !== 0) {
     writer.writeInt32(
       1,
       f
     );
   }
-  f = message.getMessage();
+  f = message.getIncidentType();
   if (f.length > 0) {
     writer.writeString(
       2,
+      f
+    );
+  }
+  f = message.getIncidentDatetime();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getIncidentDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getCnxn();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getWorkflow();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
+      f
+    );
+  }
+  f = message.getWorklet();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
+    );
+  }
+  f = message.getSession();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
+      f
+    );
+  }
+  f = message.getFolder();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
+      f
+    );
+  }
+  f = message.getResolverName();
+  if (f.length > 0) {
+    writer.writeString(
+      10,
+      f
+    );
+  }
+  f = message.getTimeToResolve();
+  if (f.length > 0) {
+    writer.writeString(
+      11,
+      f
+    );
+  }
+  f = message.getResolutionDetails();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
       f
     );
   }
@@ -281,32 +401,182 @@ proto.ugh.Issue.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int32 issue_id = 1;
+ * optional int32 record_id = 1;
  * @return {number}
  */
-proto.ugh.Issue.prototype.getIssueId = function() {
+proto.ugh.Issue.prototype.getRecordId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.ugh.Issue.prototype.setIssueId = function(value) {
+proto.ugh.Issue.prototype.setRecordId = function(value) {
   jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
- * optional string message = 2;
+ * optional string incident_type = 2;
  * @return {string}
  */
-proto.ugh.Issue.prototype.getMessage = function() {
+proto.ugh.Issue.prototype.getIncidentType = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.ugh.Issue.prototype.setMessage = function(value) {
+proto.ugh.Issue.prototype.setIncidentType = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string incident_datetime = 3;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getIncidentDatetime = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setIncidentDatetime = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string incident_description = 4;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getIncidentDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setIncidentDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string cnxn = 5;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getCnxn = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setCnxn = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string workflow = 6;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getWorkflow = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setWorkflow = function(value) {
+  jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional string worklet = 7;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getWorklet = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setWorklet = function(value) {
+  jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string session = 8;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getSession = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setSession = function(value) {
+  jspb.Message.setProto3StringField(this, 8, value);
+};
+
+
+/**
+ * optional string folder = 9;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getFolder = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setFolder = function(value) {
+  jspb.Message.setProto3StringField(this, 9, value);
+};
+
+
+/**
+ * optional string resolver_name = 10;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getResolverName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setResolverName = function(value) {
+  jspb.Message.setProto3StringField(this, 10, value);
+};
+
+
+/**
+ * optional string time_to_resolve = 11;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getTimeToResolve = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setTimeToResolve = function(value) {
+  jspb.Message.setProto3StringField(this, 11, value);
+};
+
+
+/**
+ * optional string resolution_details = 12;
+ * @return {string}
+ */
+proto.ugh.Issue.prototype.getResolutionDetails = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/** @param {string} value */
+proto.ugh.Issue.prototype.setResolutionDetails = function(value) {
+  jspb.Message.setProto3StringField(this, 12, value);
 };
 
 

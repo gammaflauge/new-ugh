@@ -19,23 +19,30 @@
           target="_"
         >On Call 101</b-btn>
         <b-btn
-          variant="danger"
+          variant="info"
           href="https://rstudio-connect.chop.edu/content/384/"
           target="_"
         >ETL Activity Monitor</b-btn>
+        <b-btn
+          v-b-popover.hover="'Ask Matt -- (devinem4@email.chop.edu)'"
+          title="Need Access?"
+          variant="danger"
+          href="https://redcap.chop.edu/redcap_v9.0.3/ProjectSetup/index.php?pid=22810"
+          target="_"
+        >Redcap Issues DB</b-btn>
       </div>
+      <p>
+        <br>If you need to update or delete an incident, please do so via the
+        <a
+          href="https://redcap.chop.edu/redcap_v9.0.3/ProjectSetup/index.php?pid=22810"
+          target="_"
+        >Redcap Issues DB Admin Mode</a>.
+      </p>
+      <b-btn variant="success" href="https://redcap.chop.edu/surveys/?s=Y7JKW3JWDX" target="_">
+        <b>+ Add a New Incident +</b>
+      </b-btn>
+      <br>(you'll need to refresh this page to see it)
     </b-jumbotron>
-    <div>
-      <b-alert show variant="warning">
-        <h4>
-          Alert! The UGH tool is having some difficulty communicating with REDCap. Please add new issues
-          <a
-            href="https://redcap.chop.edu/surveys/?s=Y7JKW3JWDX"
-            target="_"
-          >here</a> while we debug. You'll need to refresh this page to see them show up.
-        </h4>
-      </b-alert>
-    </div>
     <IssueList/>
   </div>
 </template>
