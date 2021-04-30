@@ -8,4 +8,4 @@ PyCap==1.0.0
 requests==2.22.0
 semantic-version==2.3.1
 six==1.12.0
-urllib3==1.25.3
+urllib3==1.25.8
